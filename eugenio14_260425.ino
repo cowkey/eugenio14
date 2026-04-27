@@ -1,33 +1,10 @@
-/*
-  Software serial multple serial test
 
- Receives from the hardware serial, sends to software serial.
- Receives from software serial, sends to hardware serial.
 
- The circuit:
- * RX is digital pin 10 (connect to TX of other device)
- * TX is digital pin 11 (connect to RX of other device)
 
- Note:
- Not all pins on the Mega and Mega 2560 support change interrupts,
- so only the following can be used for RX:
- 10, 11, 12, 13, 50, 51, 52, 53, 62, 63, 64, 65, 66, 67, 68, 69
-
- Not all pins on the Leonardo and Micro support change interrupts,
- so only the following can be used for RX:
- 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
-
- created back in the mists of time
- modified 25 May 2012
- by Tom Igoe
- based on Mikal Hart's example
-
- This example code is in the public domain.
-
- */
 #include <SoftwareSerial.h>
 
 SoftwareSerial mySerial(10, 11); // RX, TX
+
 
 //Entradas digitais
 int Ibtnptn=0;  //Interruptor do portão - pin 2
@@ -40,50 +17,61 @@ int Irsvrsv=0; // reserva - pin 6
 int Olpdpri=0; //Lampada aárea comum principal - pin 7
 int Olpdsec=0; //Lampada área comum secundária - pin 8
 int Olpdcor=0; //Lampada do corredor da garagem - pin 9
-int Olpdpro=0; //Lampada do projetor - pin 10
-int Oalmsrn=0; //Sirene - pin 11
+int Olpdpro=0; //Lampada do projetor - pin 12
+int Oalmsrn=0; //Sirene - pin 13
 
 
 
 
-
-void setup() {
+void setup()
+{
   // Open serial communications and wait for port to open:
   Serial.begin(57600);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-PinMode(2,INPUT);
-PinMode(3,INPUT);
-PinMode(4,INPUT);
-PinMode(5,INPUT);
-PinMode(6,INPUT);
-PinMode(7,OUTPUT);
-PinMode(8,OUTPUT);
-PinMode90,OUTPUT);
-PinMode(10,OUTPUT);
-PinMode(11,OUTPUT);
 
   Serial.println("Goodnight moon!");
 
   // set the data rate for the SoftwareSerial port
   mySerial.begin(4800);
   mySerial.println("Hello, world?");
+
+
+
+pinMode(2, INPUT);
+pinMode(3, INPUT);
+pinMode(4, INPUT);
+pinMode(5, INPUT);
+pinMode(6, INPUT);
+pinMode(7, OUTPUT);
+pinMode(8, OUTPUT);
+pinMode(9, OUTPUT);
+pinMode(12, OUTPUT);
+pinMode(13, OUTPUT);
 }
 
 void loop() { // run over and over
  
+  Ibtnptn=digitalRead(2);
+  Ibtnpta=digitalRead(3);
+  Ibtnpia=digitalRead(4);
+  Isnspts=digitalRead(5);
   
+  If Ibtnpta=1 
+  {
+   If( 
+  }
   
+  If Ibtnpts=1
+  {
+    
+  }
   
-  
-  
-  
-  
-  
-  
-  
-  
+  If Ibtnpia=1
+  {
+    
+  }
   
   
   
